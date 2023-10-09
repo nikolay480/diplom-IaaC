@@ -10,3 +10,5 @@
 
 .terraformrc
 terraform.rc
+
+*.json
