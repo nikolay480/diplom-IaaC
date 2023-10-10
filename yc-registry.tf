@@ -4,18 +4,11 @@ resource "yandex_iot_core_registry" "dev_registry" {
   labels = {
     test-label = "label-test"
   }
-
-#   passwords = [
-#     "<password_1>",
-#     "<password_2>"
-#   ]
-
 #   certificates = [
 #     file("<path_to_first_certificate_file>"),
 #     file("<path_to_second_certificate_file>")
 #   ]
 }
-
 output "yandex_iot_core_registry_dev_registry" {
   value = "${yandex_iot_core_registry.dev_registry.id}"
 }
