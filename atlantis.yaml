@@ -1,22 +1,23 @@
 version: 3
 
 projects:
-- dir: .
+- name: stage-project
+  dir: .
   # Надо запускать планирование и аплай для двух воркспейса stage.
   workspace: stage
   autoplan:
     # Необходимо включить автопланирование при изменении любых файлов *.tf.
     when_modified: ["*.tf*"]
-  workflow: default
+  workflow: dev-wf
 - dir: .
   # Надо запускать планирование и аплай для двух воркспейса prod.
   workspace: prod
   autoplan:
     # Необходимо включить автопланирование при изменении любых файлов *.tf.
     when_modified: ["*.tf*"]
-  workflow: default
+  workflow: dev-wf
 workflows:
-  default:
+  dev-wf:
     plan:
       steps:
         - init
