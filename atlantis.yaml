@@ -1,5 +1,5 @@
 version: 3
-allowed_overrides: [workflow]
+
 projects:
 - dir: .
   # Надо запускать планирование и аплай для двух воркспейса stage.
@@ -15,3 +15,12 @@ projects:
     # Необходимо включить автопланирование при изменении любых файлов *.tf.
     when_modified: ["*.tf*"]
   workflow: default
+workflows:
+  default:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - apply
