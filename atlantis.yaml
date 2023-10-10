@@ -6,9 +6,11 @@ projects:
   autoplan:
     # Необходимо включить автопланирование при изменении любых файлов *.tf.
     when_modified: ["*.tf*"]
+  workflow: default
 - dir: .
   # Надо запускать планирование и аплай для двух воркспейса prod.
   workspace: prod
   autoplan:
     # Необходимо включить автопланирование при изменении любых файлов *.tf.
     when_modified: ["*.tf*"]
+  workflow: default
