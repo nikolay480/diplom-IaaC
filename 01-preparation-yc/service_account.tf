@@ -34,6 +34,20 @@ resource "yandex_resourcemanager_folder_iam_member" "sa-kms-encrypt" {
   ]
 }
 
+resource "yandex_resourcemanager_folder_iam_member" "sa-cr-pusher" {
+  folder_id = var.folder_id
+  role      = "container-registry.images.pusher"
+  member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+
+}
+
+resource "yandex_resourcemanager_folder_iam_member" "sa-cr-puller" {
+  folder_id = var.folder_id
+  role      = "container-registry.images.puller"
+  member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+  
+}
+
 resource "yandex_iam_service_account_static_access_key" "sa-storage-key" {
   service_account_id = yandex_iam_service_account.sa.id
   description        = "Access keys for my backet"

@@ -13,3 +13,7 @@ output "worker_node_external_ips" {
 output "worker_node_internal_ips" {
     value = yandex_compute_instance_group.worker-nodes.instances.*.network_interface.0.ip_address
 }
+
+output "yandex_container_registry_dev_cr" {
+  value = "${yandex_container_registry.dev-cr.id}"
+}
