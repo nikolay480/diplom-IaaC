@@ -4,18 +4,18 @@ projects:
   workspace: stage
   autoplan:
     when_modified: ["*.tf*"]
-  # workflow: custom
+  workflow: custom
 - dir: .
   workspace: prod
   autoplan:
     when_modified: ["*.tf*"]
-  # workflow: custom
-# workflows:
-#   custom:
-#     plan:
-#       steps:
-#       - init
-#       - plan
-#     apply:
-#       steps:
-#       - apply
+  workflow: custom
+workflows:
+ custom:
+   plan:
+     steps:
+     - init
+     - plan
+   apply:
+     steps:
+     - apply
